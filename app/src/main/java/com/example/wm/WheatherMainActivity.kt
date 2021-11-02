@@ -9,7 +9,7 @@ import com.example.weatherdustchecker.WeatherPageFragment
 class WheatherMainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        setContentView(R.layout.weather_main_activity)
 
         supportActionBar?.hide()
 
@@ -19,10 +19,5 @@ class WheatherMainActivity : AppCompatActivity() {
         transaction.add(R.id.fragment_container, fragment)
         transaction.commit()
 
-        val LearnButton = findViewById<ImageButton>(R.id.learn)
-        LearnButton.setOnClickListener {
-            val intent = Intent(this, LearningActivity::class.java)
-            startActivity(intent)
-        }
     }
 }

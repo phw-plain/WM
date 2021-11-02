@@ -1,16 +1,21 @@
 package com.example.weatherdustchecker
 
 import android.annotation.SuppressLint
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
+import android.widget.ImageButton
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.fragment.app.Fragment
 import com.example.wm.APICall
+import com.example.wm.LearningActivity
 import com.example.wm.R
+import com.example.wm.WheatherMainActivity
 import com.fasterxml.jackson.annotation.JsonIgnore
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties
 import com.fasterxml.jackson.module.kotlin.jacksonObjectMapper
@@ -21,6 +26,7 @@ class WeatherPageFragment : Fragment() {
     lateinit var statusText: TextView
     lateinit var temperatureText: TextView
     lateinit var weatherImage: ImageView
+    lateinit var LearnButton: ImageButton
 
     @JsonIgnoreProperties(ignoreUnknown=true)
     data class OpenWeatherAPIJSONResponse(
@@ -49,6 +55,13 @@ class WeatherPageFragment : Fragment() {
         temperatureText = view.findViewById<TextView>(R.id.weather_temp_text)
         weatherImage = view.findViewById<ImageView>(R.id.weather_icon)
 
+        LearnButton = view.findViewById<ImageButton>(R.id.learn)
+        LearnButton.setOnClickListener {
+            val intent = Intent(getActivity(), LearningActivity::class.java)
+            startActivity(intent)
+        }
+
+
         return view
     }
 
@@ -59,18 +72,19 @@ class WeatherPageFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         val lat = arguments!!.getDouble("lat")
         val lon = arguments!!.getDouble("lon")
-        val url = "http://api.openweathermap.org/data/2.5/weather?units=metric&appid=${appID}&lat=${lat}&lon=${lon}"
+        val url =
+            "http://api.openweathermap.org/data/2.5/weather?units=metric&appid=${appID}&lat=${lat}&lon=${lon}"
 
         APICall(object : APICall.APICallback {
             override fun onComplete(result: String) {
                 var mapper = jacksonObjectMapper()
-                var data= mapper?.readValue<OpenWeatherAPIJSONResponse>(result)
+                var data = mapper?.readValue<OpenWeatherAPIJSONResponse>(result)
 
                 val temp = data.main.get("temp")
                 temperatureText.text = temp
 
                 val id = data.weather[0].get("id")
-                if(id != null) {
+                if (id != null) {
                     when {
                         id.startsWith("2") -> {
                             weatherImage.setImageResource(R.drawable.flash)
@@ -107,4 +121,7 @@ class WeatherPageFragment : Fragment() {
             }
         }).execute(URL(url))
     }
+
+
+
 }
