@@ -8,96 +8,103 @@
 
     <include layout="@layout/titlebar"/>
 
-    <LinearLayout
-        android:layout_marginTop="50dp"
-        android:layout_marginLeft="50dp"
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" >
+        android:layout_height="match_parent">
 
-        <androidx.cardview.widget.CardView
-            app:cardCornerRadius="20dp"
-            android:layout_gravity="center"
-            android:layout_width="150dp"
-            android:layout_height="150dp">
-
-            <ImageView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:src="@drawable/shirts"
-                android:scaleType="fitXY" />
-
-        </androidx.cardview.widget.CardView>
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
         <LinearLayout
+            android:layout_marginTop="50dp"
+            android:layout_marginLeft="50dp"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical">
+            android:layout_height="wrap_content" >
 
-            <TextView
-                android:textColor="@color/black"
-                android:layout_marginTop="10dp"
-                android:layout_marginLeft="20dp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textStyle="bold"
-                android:textSize="18sp"
-                android:text="와이셔츠 세탁 방법"/>
+            <androidx.cardview.widget.CardView
+                app:cardCornerRadius="20dp"
+                android:layout_gravity="center"
+                android:layout_width="150dp"
+                android:layout_height="150dp">
 
-            <TextView
-                android:layout_marginTop="10dp"
-                android:layout_marginLeft="20dp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textSize="20sp"
-                android:text="👍"/>
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:src="@drawable/shirts"
+                    android:scaleType="fitXY" />
+
+            </androidx.cardview.widget.CardView>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/detailed_title"
+                    android:textColor="@color/black"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginLeft="20dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textStyle="bold"
+                    android:textSize="18sp"
+                    android:text="와이셔츠 세탁 방법"/>
+
+                <TextView
+                    android:layout_marginTop="10dp"
+                    android:layout_marginLeft="20dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="20sp"
+                    android:text="👍"/>
+
+            </LinearLayout>
 
         </LinearLayout>
 
 
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="50dp"
+            android:layout_marginTop="30dp"
+            android:orientation="vertical">
+            <TextView
+                android:layout_width="300sp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:background="@color/gray"
+                android:text="손세탁"
+                android:textSize="18sp" />
+
+            <TextView
+                android:id="@+id/handwash_text"
+                android:layout_width="303dp"
+                android:layout_height="wrap_content"
+                android:text="손세탁 방법" />
+
+            <TextView
+                android:layout_width="300sp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="50dp"
+                android:background="@color/gray"
+                android:text="세탁기"
+                android:textSize="18sp" />
+
+            <TextView
+                android:id="@+id/machine_text"
+                android:layout_width="303dp"
+                android:layout_height="wrap_content"
+                android:text="세탁기 방법" />
+
+        </LinearLayout>
     </LinearLayout>
-
-    <LinearLayout
-        android:layout_marginLeft="50dp"
-        android:layout_marginTop="30dp"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
-
-        <TextView
-            android:textColor="@color/black"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:textSize="18sp"
-            android:text="• 리스트 항목"/>
-        <TextView
-            android:textColor="@color/black"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:textSize="18sp"
-            android:text="• 리스트 항목"/>
-        <TextView
-            android:textColor="@color/black"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:textSize="18sp"
-            android:text="• 리스트 항목"/>
-
-        <TextView
-            android:layout_marginTop="20dp"
-            android:layout_width="300sp"
-            android:layout_height="wrap_content"
-            android:background="@color/gray"
-            android:textSize="18sp"
-            android:text="손세탁"/>
-
-        <TextView
-            android:layout_marginTop="150dp"
-            android:layout_width="300sp"
-            android:layout_height="wrap_content"
-            android:background="@color/gray"
-            android:textSize="18sp"
-            android:text="세탁기"/>
-
-    </LinearLayout>
-
+    </ScrollView>
+    <Button
+        android:id="@+id/detailed_list_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
 </LinearLayout>

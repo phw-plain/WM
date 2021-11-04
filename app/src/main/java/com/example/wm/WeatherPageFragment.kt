@@ -23,7 +23,6 @@ import com.fasterxml.jackson.module.kotlin.readValue
 import java.net.URL
 
 class WeatherPageFragment : Fragment() {
-    lateinit var statusText: TextView
     lateinit var temperatureText: TextView
     lateinit var weatherImage: ImageView
     lateinit var LearnButton: ImageButton
@@ -82,6 +81,7 @@ class WeatherPageFragment : Fragment() {
 
                 val temp = data.main.get("temp")
                 temperatureText.text = temp
+                temperatureText.text = temperatureText.text.split(".")[0]
 
                 val id = data.weather[0].get("id")
                 if (id != null) {
