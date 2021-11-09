@@ -3,20 +3,16 @@ package com.example.weatherdustchecker
 import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
 import android.widget.ImageButton
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.fragment.app.Fragment
 import com.example.wm.APICall
-import com.example.wm.LearningActivity
+import com.example.wm.LearnListActivity
 import com.example.wm.R
-import com.example.wm.WheatherMainActivity
-import com.fasterxml.jackson.annotation.JsonIgnore
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties
 import com.fasterxml.jackson.module.kotlin.jacksonObjectMapper
 import com.fasterxml.jackson.module.kotlin.readValue
@@ -56,10 +52,9 @@ class WeatherPageFragment : Fragment() {
 
         LearnButton = view.findViewById<ImageButton>(R.id.learn)
         LearnButton.setOnClickListener {
-            val intent = Intent(getActivity(), LearningActivity::class.java)
+            val intent = Intent(getActivity(), LearnListActivity::class.java)
             startActivity(intent)
         }
-
 
         return view
     }

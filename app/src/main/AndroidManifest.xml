@@ -14,10 +14,10 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.WM">
         <activity
-            android:name=".LearningActivity"
+            android:name=".LearnMainActivity"
             android:exported="true" />
         <activity
-            android:name=".DetailedActivity"
+            android:name=".LearnListActivity"
             android:exported="true" />
         <activity android:name=".WheatherMainActivity">
             <intent-filter>
